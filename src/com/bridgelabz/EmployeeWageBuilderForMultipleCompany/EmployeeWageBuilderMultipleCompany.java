@@ -1,15 +1,14 @@
 package com.bridgelabz.EmployeeWageBuilderForMultipleCompany;
 
 public class EmployeeWageBuilderMultipleCompany {
-    private static final int WAGE_PER_HOUR = 20;
-    private static final int IS_FULL_TIME = 1;
-    private static final int IS_PART_TIME = 2;
     private static final int HALF_DAY_HOUR = 5;
     private static final int FULL_DAY_HOUR = 10;
-    private static final int TOTAL_WORKING_HOURS = 100;
-    private static final int TOTAL_WORKING_DAYS = 20;
-    //UC7 Method to Compute wage
-    public static void wageCompute() {
+
+    private static final int IS_FULL_TIME = 1;
+
+    private static final int IS_PART_TIME = 2;
+
+    public static void wageCompute( String companyName, int WAGE_PER_HOUR, int TOTAL_WORKING_DAYS, int TOTAL_WORKING_HOURS ){
         int dayCount = 1;
         int workingHours = 0;
         int totalWage = 0;
@@ -34,11 +33,18 @@ public class EmployeeWageBuilderMultipleCompany {
             System.out.println("Daily Wage for day : " + dayCount + " is " + dailyWage);
             dayCount++;
         }
+        System.out.println("********************************");
+        System.out.println("The Company Name : "+companyName);
+        System.out.println("Total Days : "+ (dayCount-1));
+        System.out.println("Total Working Hours : " + workingHours);
+        System.out.println("Total wage for a month :" +totalWage);
+        System.out.println("********************************");
     }
-
     public static void main(String[] args) {
-        System.out.println("Welcome to Employee wage Computation Problem");
-        wageCompute();
+        //UC8 Employee Wage Computation for multiple companies
+        wageCompute("MAHINDRA",15,20,100 );
+        wageCompute("TATA",20,21,100 );
+
     }
 }
 
