@@ -3,12 +3,20 @@ package com.bridgelabz.EmployeeWageBuilderForMultipleCompany;
 public class EmployeeWageBuilderMultipleCompany {
     private static final int HALF_DAY_HOUR = 5;
     private static final int FULL_DAY_HOUR = 10;
-
     private static final int IS_FULL_TIME = 1;
-
     private static final int IS_PART_TIME = 2;
+    private final String companyName;
+    private final int WAGE_PER_HOUR;
+    private final int TOTAL_WORKING_HOURS;
+    private final int TOTAL_WORKING_DAYS;
 
-    public static void wageCompute( String companyName, int WAGE_PER_HOUR, int TOTAL_WORKING_DAYS, int TOTAL_WORKING_HOURS ){
+    EmployeeWageBuilderMultipleCompany(String companyName, int WAGE_PER_HOUR, int TOTAL_WORKING_DAYS, int TOTAL_WORKING_HOURS){
+        this.companyName=companyName;
+        this.WAGE_PER_HOUR=WAGE_PER_HOUR;
+        this.TOTAL_WORKING_HOURS=TOTAL_WORKING_HOURS;
+        this.TOTAL_WORKING_DAYS=TOTAL_WORKING_DAYS;
+    }
+    public void empWageBuilder(){
         int dayCount = 1;
         int workingHours = 0;
         int totalWage = 0;
@@ -41,10 +49,11 @@ public class EmployeeWageBuilderMultipleCompany {
         System.out.println("********************************");
     }
     public static void main(String[] args) {
-        //UC8 Employee Wage Computation for multiple companies
-        wageCompute("MAHINDRA",15,20,100 );
-        wageCompute("TATA",20,21,100 );
-
+        //UC9 Using empWageBuilder with instance variable
+        EmployeeWageBuilderMultipleCompany mahindra = new EmployeeWageBuilderMultipleCompany("MAHINDRA",15,20,100);
+        EmployeeWageBuilderMultipleCompany TATA = new EmployeeWageBuilderMultipleCompany("TATA",20,21,100);
+        mahindra.empWageBuilder();
+        TATA.empWageBuilder();
     }
 }
 
